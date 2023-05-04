@@ -12,11 +12,11 @@ data <- st_read("kontur_population_IN_20220630.gpkg")
 
 
 crsLAEA <- "+proj=lcc +lat_0=24 +lon_0=80 +lat_1=12.472955 +lat_2=35.1728044444444 +x_0=4000000 +y_0=4000000"
-projected <- st_transform(data[2,],crsLAEA)
+projected <- st_transform(data,crsLAEA)
 
 head(projected)
 
-bb <- st_bbox(data[2,])
+bb <- st_bbox(data)
 
 height <- st_distance(
   st_point(c(bb[["xmin"]], bb[["ymin"]])),
@@ -40,7 +40,7 @@ width_ratio
 
 size <- 3000
 
-rast_ <- st_rasterize(data[2,],nx=floor(size*width_ratio),
+rast_ <- st_rasterize(data,nx=floor(size*width_ratio),
                       ny=floor(size*height_ratio))
 
 mat <- matrix(rast_$population,
