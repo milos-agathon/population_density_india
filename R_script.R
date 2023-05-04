@@ -8,7 +8,7 @@ library(rgl)
 library(MetBrewer)
 library(colorspace)
 library(rayrender)
-data <- st_read("C:\\Users\\Rahul Ahirwar\\Desktop\\random_thoughts\\maps\\population_map\\data\\kontur_population_IN_20220630.gpkg")
+data <- st_read("kontur_population_IN_20220630.gpkg")
 
 
 crsLAEA <- "+proj=lcc +lat_0=24 +lon_0=80 +lat_1=12.472955 +lat_2=35.1728044444444 +x_0=4000000 +y_0=4000000"
@@ -66,7 +66,6 @@ render_camera(theta = -25,phi=60,zoom=.9)
 
 
 
-render_highquality(filename="C:\\Users\\Rahul Ahirwar\\Desktop\\random_thoughts\\maps\\population_map\\images\\draft1.png"
-                   )
+render_highquality(filename="draft1.png")
 
 
